@@ -64,8 +64,9 @@
   .essays b{display:block;color:var(--ink);font-weight:600;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC",sans-serif}
   .essays a:hover b{text-decoration:underline;text-underline-offset:3px}
   .about a{color:var(--accent)}
+  footer .mail{color:var(--accent);display:inline-block;vertical-align:-2px;margin-left:6px;opacity:.75;transition:opacity .2s}
   .about .mail{display:inline-block;vertical-align:-2px;margin-left:4px;opacity:.75;transition:opacity .2s}
-  .about .mail:hover{opacity:1}
+  .about .mail:hover,footer .mail:hover{opacity:1}
   .top{align-items:center}
   .hero{padding:64px 0 16px}
   .hero .sub{color:#6e6880}
@@ -117,11 +118,10 @@
   </details>
 
 
-  <p class="about">Shentu Yuxia (<span class="zh" lang="zh">申屠余夏</span>) is my pen name — “the summer that remains.” <a class="mail" href="mailto:emo_yuan@outlook.com" title="Write to me" aria-label="Write to me"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg></a></p>
+  <p class="about">Shentu Yuxia (<span class="zh" lang="zh">申屠余夏</span>) is my pen name — “the summer that remains.”</p>
 
   <footer>
-    <span>© 2026 Shentu Yuxia</span>
-    <span>shentuyuxia.com</span>
+    <span>© 2026 Shentu Yuxia <a class="mail" href="mailto:emo_yuan@outlook.com" title="Write to me" aria-label="Write to me"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg></a></span>
   </footer>
 </div>
 <script>
