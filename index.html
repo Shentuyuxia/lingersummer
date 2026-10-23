@@ -32,6 +32,17 @@
   .proj a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line);transition:border-color .2s}
   .proj a:hover{border-color:var(--ink)}
   .proj span{display:block;color:var(--muted);font-size:clamp(12.5px,1.8vw,14px);line-height:1.7}
+  .fold{padding:0;border-top:1px solid var(--line);margin:0}
+  #greenhouse+.fold{margin-top:40px}
+  .fold+.fold{border-top:1px solid var(--line)}
+  .fold:last-of-type{border-bottom:1px solid var(--line)}
+  .fold summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:14px 0;-webkit-tap-highlight-color:transparent}
+  .fold summary::-webkit-details-marker{display:none}
+  .fold summary h2{margin:0}
+  .fold summary::after{content:"+";font-size:18px;color:var(--muted);transition:transform .2s}
+  .fold[open] summary::after{content:"–"}
+  .fold summary:hover h2{opacity:.75}
+  .fold p{color:var(--muted);font-size:clamp(12.5px,1.8vw,14px);line-height:1.7;margin:0 0 16px}
   .about{margin:48px 0 0}
   footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
     margin:18px 0 40px;padding-top:16px;border-top:1px solid var(--line);color:var(--faint);font-size:12.5px}
@@ -46,16 +57,6 @@
     <p class="sub">Summer leaves, but something always stays.<br>A slowly growing garden of essays, notes, and the words that fall between languages.</p>
   </header>
 
-  <section id="essays">
-    <h2>Essays</h2>
-    <p>The first essay is still sprouting…</p>
-  </section>
-
-  <section id="seedlings">
-    <h2>Seedlings</h2>
-    <p>Loose notes, borrowed sentences, and half-grown thoughts. Nothing planted yet.</p>
-  </section>
-
   <section id="greenhouse">
     <h2>Greenhouse</h2>
     <ul class="proj">
@@ -66,6 +67,16 @@
       <li><a href="/tonight/">Tonight’s Talk · <span class="zh" style="display:inline;color:inherit">今夜聊什么</span></a><span>Party conversation cards in Chinese, English, German and Portuguese.</span></li>
     </ul>
   </section>
+
+  <details class="fold" id="essays">
+    <summary><h2>Essays</h2></summary>
+    <p>The first essay is still sprouting…</p>
+  </details>
+
+  <details class="fold" id="seedlings">
+    <summary><h2>Seedlings</h2></summary>
+    <p>Loose notes, borrowed sentences, and half-grown thoughts. Nothing planted yet.</p>
+  </details>
 
   <p class="about">Shentu Yuxia (<span class="zh">申屠余夏</span>) is a pen name. Yuxia means “the summer that remains.”</p>
 
