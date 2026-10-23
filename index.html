@@ -23,7 +23,7 @@
   .zh{font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Microsoft YaHei",sans-serif;font-weight:300}
   .top{display:flex;justify-content:space-between;align-items:baseline;padding:22px 0 16px;border-bottom:1px solid var(--line)}
   .brand{font-size:16px;font-weight:600;color:var(--ink);text-decoration:none}
-  .wrap{max-width:900px;margin:0 auto;padding:0 20px}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
   header{text-align:left;padding:64px 0 16px}
   h1{font-family:"IBM Plex Mono",ui-monospace,monospace;font-weight:400;color:var(--ink);
     font-size:clamp(28px,6vw,46px);letter-spacing:-.02em;line-height:1.1;margin:0}
@@ -98,12 +98,25 @@
   .sub,section p,.about,.intro,.row,.fold p,.essays a{font-size:clamp(16px,1.9vw,18px)!important}
   .row b{font-size:clamp(16.5px,2vw,18.5px)}
   .row{color:var(--muted)!important}
+  .titlerow{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+  .search{display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(47,42,61,.22);padding:4px 2px;color:var(--faint);min-width:220px;transition:border-color .2s}
+  .search:focus-within{border-color:var(--accent);color:var(--accent)}
+  .search input{border:0;background:none;outline:none;font:inherit;font-size:15px;color:var(--ink);width:100%;-webkit-appearance:none}
+  .search input::placeholder{color:var(--faint)}
+  .search input::-webkit-search-cancel-button{opacity:.5}
+  .nohit{color:var(--faint);font-size:15px;margin:14px 0 0}
+  .hit-hide{display:none!important}
+  @media (max-width:640px){ .titlerow{gap:14px} .search{min-width:0;width:100%} }
 </style>
 </head>
 <body>
 <div class="wrap">
   <header class="hero">
-    <h1>Lingering Summer</h1>
+    <div class="titlerow">
+      <h1>Lingering Summer</h1>
+      <label class="search"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg><input type="search" id="q" placeholder="Search" aria-label="Search this site" autocomplete="off"></label>
+    </div>
+    <p class="nohit" id="nohit" hidden>Nothing found.</p>
     <p class="sub">Here is a slowly growing garden of essays, notes, and the words that fall between languages.</p>
   </header>
 
@@ -139,6 +152,19 @@
 <script>
 function openTo(id){ var d=document.getElementById(id); if(d&&d.tagName==="DETAILS") d.open=true; }
 if(location.hash==="#essays"){ openTo("notes"); var n=document.getElementById("notes"); if(n) n.scrollIntoView(); } else if(location.hash) openTo(location.hash.slice(1));
+var q=document.getElementById("q"), nohit=document.getElementById("nohit");
+q.addEventListener("input",function(){
+  var t=q.value.trim().toLowerCase(), any=false, notesHit=false;
+  document.querySelectorAll(".proj li, .essays li").forEach(function(li){
+    var ok=!t||li.textContent.toLowerCase().indexOf(t)>=0; li.classList.toggle("hit-hide",!ok);
+    if(ok&&t){ any=true; if(li.closest("#notes")) notesHit=true; } });
+  var gh=document.getElementById("greenhouse"); if(gh) gh.classList.toggle("hit-hide",!!t&&!gh.querySelector(".proj li:not(.hit-hide)"));
+  var sd=document.getElementById("seedlings"); if(sd) sd.classList.toggle("hit-hide",!!t&&sd.textContent.toLowerCase().indexOf(t)<0);
+  var nt=document.getElementById("notes"); if(nt){ nt.classList.toggle("hit-hide",!!t&&!notesHit); if(notesHit) nt.open=true; }
+  if(sd&&t&&!sd.classList.contains("hit-hide")){ sd.open=true; any=true; }
+  nohit.hidden=!t||any;
+});
+q.addEventListener("keydown",function(e){ if(e.key==="Escape"){ q.value=""; q.dispatchEvent(new Event("input")); } });
 </script>
 </body>
 </html>
