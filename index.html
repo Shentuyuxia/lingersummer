@@ -22,7 +22,7 @@
   .zh{font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Microsoft YaHei",sans-serif;font-weight:300}
   .top{display:flex;justify-content:space-between;align-items:baseline;padding:22px 0 16px;border-bottom:1px solid var(--line)}
   .brand{font-size:16px;font-weight:600;color:var(--ink);text-decoration:none}
-  .wrap{max-width:760px;margin:0 auto;padding:0 20px}
+  .wrap{max-width:900px;margin:0 auto;padding:0 20px}
   header{text-align:left;padding:64px 0 16px}
   h1{font-family:"IBM Plex Mono",ui-monospace,monospace;font-weight:400;color:var(--ink);
     font-size:clamp(28px,6vw,46px);letter-spacing:-.02em;line-height:1.1;margin:0}
@@ -66,58 +66,31 @@
   .about a{color:var(--accent)}
   .about .mail{display:inline-block;vertical-align:-2px;margin-left:4px;opacity:.75;transition:opacity .2s}
   .about .mail:hover{opacity:1}
-  .mast{max-width:1120px;margin:0 auto;padding:22px 24px 10px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:28px}
-  .mark{display:flex;align-items:center;gap:26px;color:var(--ink);text-decoration:none}
-  .seal{width:112px;height:112px;color:#4a3f5c;flex:none}
-  .seal text{font-family:"IBM Plex Mono",ui-monospace,monospace}
-  .seal .seal-zh{font-family:"Songti SC","STSong","Noto Serif SC","Source Han Serif SC",serif;font-weight:400}
-  .name{font-family:"Source Serif 4",Georgia,serif;font-weight:300;font-size:13px;letter-spacing:.32em;color:var(--muted);white-space:nowrap}
-  .hair{height:1px;background:rgba(47,42,61,.22);align-self:center;margin-top:-6px}
-  .titleblock{text-align:right}
-  .mast h1{font-family:"Source Serif 4",Georgia,serif;font-weight:300;font-size:clamp(26px,3.2vw,36px);letter-spacing:.01em;line-height:1.15;margin:0 0 10px;color:#2f2a4d}
-  .nav{display:flex;gap:30px;justify-content:flex-end;flex-wrap:wrap}
-  .nav a{font-size:13px;color:var(--muted);text-decoration:none;padding-bottom:5px;border-bottom:1.5px solid transparent}
-  .nav a:hover{color:var(--accent)}
-  .nav a.on{color:var(--accent);border-bottom-color:var(--accent)}
-  .hero{padding:44px 0 6px}
-  .hero .sub:first-child{margin-top:0}
-  @media (max-width:700px){
-    .mast{grid-template-columns:1fr;gap:14px;padding:18px 20px 4px}
-    .mark{gap:16px} .seal{width:78px;height:78px}
-    .hair{display:none}
-    .titleblock{text-align:left;border-top:1px solid var(--line);padding-top:14px}
-    .nav{justify-content:flex-start;gap:8px 15px}
-    .nav a{font-size:12.5px}
-    .hero{padding:26px 0 4px}
-  }
+  .top{align-items:center}
+  .nav{display:flex;gap:24px;flex-wrap:wrap;justify-content:flex-end}
+  .nav a{font-size:13px;color:var(--faint);text-decoration:none;padding-bottom:3px;border-bottom:1.5px solid transparent;transition:color .2s}
+  .nav a:hover{color:var(--accent);border-bottom-color:var(--rule)}
+  .hero{padding:64px 0 16px}
+  .hero .sub{color:#6e6880}
+  .hero .sub:first-of-type{margin-top:22px}
+  .row{color:#6e6880}
+  .row b{color:var(--ink)}
+  @media (max-width:520px){ .hero{padding:44px 0 8px} .nav{gap:6px 16px;justify-content:flex-start} .top{justify-content:flex-start} .top>span:first-child{display:none} }
 </style>
 </head>
 <body>
-  <header class="mast">
-    <a class="mark" href="./" aria-label="Shentu Yuxia · home">
-      <svg class="seal" viewBox="0 0 120 120" aria-hidden="true">
-        <defs><path id="ring" d="M60,60 m-45,0 a45,45 0 1,1 90,0 a45,45 0 1,1 -90,0"/></defs>
-        <circle cx="60" cy="60" r="56" fill="none" stroke="currentColor" stroke-width=".8" opacity=".35"/>
-        <text font-size="10" fill="currentColor"><textPath href="#ring" startOffset="0" textLength="276" lengthAdjust="spacing">SHENTU · YUXIA · SHENTU · YUXIA · </textPath></text>
-        <text x="60" y="58" text-anchor="middle" class="seal-zh" font-size="27" fill="currentColor">余</text>
-        <text x="60" y="88" text-anchor="middle" class="seal-zh" font-size="27" fill="currentColor">夏</text>
-      </svg>
-      <span class="name">SHENTU&nbsp; YUXIA</span>
-    </a>
-    <span class="hair" aria-hidden="true"></span>
-    <div class="titleblock">
-      <h1>Lingering Summer</h1>
-      <nav class="nav" aria-label="Sections">
-        <a href="./" class="on">Home</a>
-        <a href="#greenhouse">Greenhouse</a>
-        <a href="#essays">Essays</a>
-        <a href="#seedlings">Seedlings</a>
-        <a href="#about">About me</a>
-      </nav>
-    </div>
-  </header>
 <div class="wrap">
+  <nav class="top" aria-label="Sections">
+    <span></span>
+    <span class="nav">
+      <a href="#greenhouse">Greenhouse</a>
+      <a href="#essays">Essays</a>
+      <a href="#seedlings">Seedlings</a>
+      <a href="#about">About me</a>
+    </span>
+  </nav>
   <header class="hero">
+    <h1>Lingering Summer</h1>
     <p class="sub">Here is a slowly growing garden of essays, notes, and the words that fall between languages.</p>
     <p class="sub sub2">Shentu Yuxia (<span class="zh" lang="zh">申屠余夏</span>) is my pen name. Yuxia means “the summer that remains” — a lingering summer.</p>
   </header>
