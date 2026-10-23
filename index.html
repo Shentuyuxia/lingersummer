@@ -25,7 +25,11 @@
     color:var(--ink);font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:14px;line-height:1.8;
     -webkit-font-smoothing:antialiased}
   .zh{font-family:"LXGW WenKai","Kaiti SC","STKaiti",serif;font-size:1.05em}
-  .brand{display:inline-block;margin-top:20px;font-size:14px;font-weight:600;color:var(--ink);text-decoration:none}
+  .top{display:flex;justify-content:space-between;align-items:baseline;padding:22px 0 16px;border-bottom:1px solid var(--line)}
+  .brand{font-size:16px;font-weight:600;color:var(--ink);text-decoration:none}
+  .links{display:flex;gap:20px}
+  .links a{font-size:13.5px;color:var(--ink);text-decoration:none;border-bottom:1px solid transparent}
+  .links a:hover{border-color:var(--ink)}
   .wrap{max-width:760px;margin:0 auto;padding:0 20px}
   header{text-align:left;padding:64px 0 16px}
   h1{font-family:"Source Serif 4",Georgia,serif;font-weight:300;color:var(--ink);
@@ -62,7 +66,10 @@
 </head>
 <body>
 <div class="wrap">
-  <a class="brand" href="./">Shentu Yuxia</a>
+  <nav class="top">
+    <a class="brand" href="./">Shentu Yuxia</a>
+    <span class="links"><a href="#greenhouse">Greenhouse</a><a href="#essays" onclick="document.getElementById('essays').open=true">Essays</a></span>
+  </nav>
   <header>
     <h1>Lingering Summer</h1>
     <p class="sub">Summer leaves, but something always stays.<br>A slowly growing garden of essays, notes, and the words that fall between languages.</p>
