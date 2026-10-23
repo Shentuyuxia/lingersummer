@@ -67,28 +67,28 @@
   .about .mail{display:inline-block;vertical-align:-2px;margin-left:4px;opacity:.75;transition:opacity .2s}
   .about .mail:hover{opacity:1}
   .top{align-items:center}
-  .nav{display:flex;gap:24px;flex-wrap:wrap;justify-content:flex-end}
-  .nav a{font-size:13px;color:var(--faint);text-decoration:none;padding-bottom:3px;border-bottom:1.5px solid transparent;transition:color .2s}
-  .nav a:hover{color:var(--accent);border-bottom-color:var(--rule)}
   .hero{padding:64px 0 16px}
   .hero .sub{color:#6e6880}
   .hero .sub:first-of-type{margin-top:22px}
   .row{color:#6e6880}
   .row b{color:var(--ink)}
   @media (max-width:520px){ .hero{padding:44px 0 8px} .nav{gap:6px 16px;justify-content:flex-start} .top{justify-content:flex-start} .top>span:first-child{display:none} }
+  /* roomier reading type (IBM Plex Mono at a larger size) */
+  body{font-size:16px;line-height:1.75}
+  .hero{padding:72px 0 16px}
+  h1{font-size:clamp(32px,6vw,52px)}
+  .sub,section p,.about,.intro,.row,.fold p,.essays a{font-size:clamp(15px,1.7vw,17.5px)!important;line-height:1.7!important}
+  .hero .sub:first-of-type{margin-top:26px}
+  h2{font-size:clamp(18px,2vw,21px)}
+  .row{padding:14px 0}
+  .row b{font-size:clamp(15.5px,1.8vw,18px);margin-bottom:4px}
+  .fold summary{padding:18px 0}
+  section{padding:44px 0 0}
+  @media (max-width:520px){ .hero{padding:48px 0 8px} }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <nav class="top" aria-label="Sections">
-    <span></span>
-    <span class="nav">
-      <a href="#greenhouse">Greenhouse</a>
-      <a href="#essays">Essays</a>
-      <a href="#seedlings">Seedlings</a>
-      <a href="#about">About me</a>
-    </span>
-  </nav>
   <header class="hero">
     <h1>Lingering Summer</h1>
     <p class="sub">Here is a slowly growing garden of essays, notes, and the words that fall between languages.</p>
@@ -131,7 +131,6 @@
 <script>
 function openTo(id){ var d=document.getElementById(id); if(d&&d.tagName==="DETAILS") d.open=true; }
 if(location.hash) openTo(location.hash.slice(1));
-document.querySelector(".nav").addEventListener("click",function(e){ var a=e.target.closest("a"); if(!a) return; var h=a.getAttribute("href"); if(h.charAt(0)==="#") openTo(h.slice(1)); });
 </script>
 </body>
 </html>
