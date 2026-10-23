@@ -111,14 +111,14 @@
     </ul>
   </section>
 
-  <details class="fold" id="essays">
-    <summary><h2>Essays</h2></summary>
+  <details class="fold" id="notes">
+    <summary><h2>Notes</h2></summary>
     <ul class="essays"><li><a href="/essays/linden/"><b lang="zh">在Linden，感受汉诺威的嬉皮之心</b><span>A year in Linden, Hannover’s hippie heart · in Chinese</span></a></li></ul>
   </details>
 
   <details class="fold" id="seedlings">
     <summary><h2>Seedlings</h2></summary>
-    <p>Loose notes, borrowed sentences, and half-grown thoughts. Nothing planted yet.</p>
+    <p>Borrowed sentences and half-grown thoughts. Nothing planted yet.</p>
   </details>
 
 
@@ -130,7 +130,7 @@
 </div>
 <script>
 function openTo(id){ var d=document.getElementById(id); if(d&&d.tagName==="DETAILS") d.open=true; }
-if(location.hash) openTo(location.hash.slice(1));
+if(location.hash==="#essays"){ openTo("notes"); var n=document.getElementById("notes"); if(n) n.scrollIntoView(); } else if(location.hash) openTo(location.hash.slice(1));
 </script>
 </body>
 </html>
