@@ -115,6 +115,29 @@
   footer{font-size:clamp(18px,1.7vw,22px)!important;color:#5a546b!important;align-items:center}
   footer .mail{opacity:1!important;vertical-align:-5px!important;margin-left:10px!important}
   footer .mail svg{width:26px;height:26px;stroke-width:1.6}
+  /* menu (top right of the title) */
+  .titlerow{flex-wrap:nowrap}
+  .menu{position:relative;flex:none}
+  .menu-btn{background:none;border:0;padding:6px;margin-right:-6px;color:var(--ink);cursor:pointer;border-radius:8px;display:flex}
+  .menu-btn:hover,.menu-btn[aria-expanded="true"]{color:var(--accent)}
+  .menu-panel{position:absolute;right:0;top:calc(100% + 8px);width:260px;padding:10px;border-radius:14px;background:rgba(255,255,255,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid var(--line);box-shadow:0 14px 34px rgba(47,42,61,.14);z-index:20}
+  .menu-panel .search{min-width:0;width:100%;margin:2px 0 8px;padding:6px 4px}
+  .menu-panel a{display:flex;justify-content:space-between;align-items:baseline;padding:10px 8px;border-radius:9px;text-decoration:none;color:var(--ink);font-size:16px}
+  .menu-panel a small{color:var(--faint);font-size:13px;font-family:"PingFang SC","Hiragino Sans GB",sans-serif}
+  .menu-panel a:hover{background:rgba(139,74,124,.08);color:var(--accent)}
+  .menu-panel a+a{border-top:1px solid rgba(47,42,61,.06)}
+  /* tools: small logo, one per row */
+  .row{grid-template-columns:28px 1fr 14px!important;gap:6px 16px;align-items:start}
+  .row .ico{width:28px;height:28px;border-radius:7px;margin-top:4px;box-shadow:0 1px 2px rgba(0,0,0,.14)}
+  .row .go{align-self:center}
+  .more{margin-top:6px;border-top:1px solid rgba(47,42,61,.07)}
+  .more summary{list-style:none;cursor:pointer;padding:16px 0 12px 44px;color:var(--muted);font-size:clamp(15px,1.6vw,17px);display:flex;gap:8px;align-items:baseline}
+  .more summary::-webkit-details-marker{display:none}
+  .more summary::after{content:"+";margin-left:auto;color:var(--muted)}
+  .more[open] summary::after{content:"–"}
+  .more summary .zh{font-size:.85em;color:var(--faint)}
+  .more summary:hover{color:var(--accent)}
+  @media (max-width:600px){ .row{gap:4px 12px} .more summary{padding-left:40px} }
 </style>
 </head>
 <body>
@@ -122,7 +145,16 @@
   <header class="hero">
     <div class="titlerow">
       <h1>Lingering Summer</h1>
-      <label class="search"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg><input type="search" id="q" placeholder="Search" aria-label="Search this site" autocomplete="off"></label>
+      <div class="menu">
+        <button class="menu-btn" id="menu-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="menu-panel" aria-label="Menu"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+        <div class="menu-panel" id="menu-panel" hidden>
+          <label class="search"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg><input type="search" id="q" placeholder="Search" aria-label="Search this site" autocomplete="off"></label>
+          <a href="#greenhouse">Greenhouse <small lang="zh">工具</small></a>
+          <a href="#notes">Notes <small lang="zh">随笔</small></a>
+          <a href="#seedlings">Seedlings <small lang="zh">札记</small></a>
+          <a href="mailto:emo_yuan@outlook.com">Write to me <small>✉</small></a>
+        </div>
+      </div>
     </div>
     <p class="nohit" id="nohit" hidden>Nothing found.</p>
     <p class="sub">Here is a slowly growing garden of essays, notes, and the words that fall between languages.</p>
@@ -132,12 +164,17 @@
     <h2>Greenhouse</h2>
     <p class="intro">I’ve spent years teaching and learning languages. These are the tools I wished I’d had — for reading, learning, and laughing together between languages. Made for my friends, open to anyone who wanders in.</p>
     <ul class="proj">
-      <li><a class="row" href="https://shentuyuxia.github.io/entrelinhas/"><span class="txt"><b>Entrelinhas <span class="zh" lang="zh">字里行间</span></b>Daily reading and flashcards in German, English, Portuguese and French.</span><span class="go">›</span></a></li>
-      <li><a class="row" href="https://shentuyuxia.github.io/Zili/"><span class="txt"><b>Zili <span class="zh" lang="zh">字里</span></b>Read Chinese and learn characters, with a dictionary at its heart.</span><span class="go">›</span></a></li>
-      <li><a class="row" href="https://shentuyuxia.github.io/shiori/"><span class="txt"><b>Shiori <span class="zh" lang="ja">栞</span></b>A Japanese reading companion, one short text a day.</span><span class="go">›</span></a></li>
-      <li><a class="row" href="https://shentuyuxia.github.io/circus/"><span class="txt"><b>The Circus <span class="zh" lang="zh">线上游园会</span></b>An online board game party.</span><span class="go">›</span></a></li>
-      <li><a class="row" href="https://shentuyuxia.github.io/Dialogs/"><span class="txt"><b>Topic Capsules <span class="zh" lang="zh">话题扭蛋</span></b>Spin the capsule machine and draw a topic for your next language exchange.</span><span class="go">›</span></a></li>
+      <li><a class="row" href="https://shentuyuxia.github.io/Zili/"><img class="ico" src="/img/zili.png" alt="" width="28" height="28"><span class="txt"><b>Zili <span class="zh" lang="zh">字里</span></b>Read Chinese and learn characters, with a dictionary at its heart. A graded text every morning, pinyin and tone colours, stroke order, and a bookshelf of the 24 solar terms.</span><span class="go">›</span></a></li>
+      <li><a class="row" href="https://shentuyuxia.github.io/entrelinhas/"><img class="ico" src="/img/entrelinhas.png" alt="" width="28" height="28"><span class="txt"><b>Entrelinhas <span class="zh" lang="zh">字里行间</span></b>Daily reading and flashcards in German, English, Portuguese and French. New articles every morning, from A1 to C2; tap any word to look it up and keep it for review.</span><span class="go">›</span></a></li>
+      <li><a class="row" href="https://shentuyuxia.github.io/shiori/"><img class="ico" src="/img/shiori.png" alt="" width="28" height="28"><span class="txt"><b>Shiori <span class="zh" lang="ja">栞</span></b>A Japanese reading companion, one short text a day. Furigana your way, natural voices, and word notes in Chinese, English or German.</span><span class="go">›</span></a></li>
     </ul>
+    <details class="more" id="more">
+      <summary>For game nights <span class="zh" lang="zh">派对</span></summary>
+      <ul class="proj">
+        <li><a class="row" href="https://shentuyuxia.github.io/circus/"><img class="ico" src="/img/circus.png" alt="" width="28" height="28"><span class="txt"><b>The Circus <span class="zh" lang="zh">线上游园会</span></b>An online board game party: 谁是卧底, 阿瓦隆, 海龟汤 and more, played by voice with a room code. In Chinese and English.</span><span class="go">›</span></a></li>
+        <li><a class="row" href="https://shentuyuxia.github.io/Dialogs/"><img class="ico" src="/img/tonight.png" alt="" width="28" height="28"><span class="txt"><b>Topic Capsules <span class="zh" lang="zh">话题扭蛋</span></b>Spin the capsule machine and draw a topic for your next language exchange. 500 topics, five levels, four languages.</span><span class="go">›</span></a></li>
+      </ul>
+    </details>
   </section>
 
   <details class="fold" id="notes">
@@ -160,6 +197,12 @@
 <script>
 function openTo(id){ var d=document.getElementById(id); if(d&&d.tagName==="DETAILS") d.open=true; }
 if(location.hash==="#essays"){ openTo("notes"); var n=document.getElementById("notes"); if(n) n.scrollIntoView(); } else if(location.hash) openTo(location.hash.slice(1));
+var mb=document.getElementById("menu-btn"), mp=document.getElementById("menu-panel");
+function menu(open){ mp.hidden=!open; mb.setAttribute("aria-expanded",open); if(open){ var f=document.getElementById("q"); if(f&&matchMedia("(pointer:fine)").matches) f.focus(); } }
+mb.addEventListener("click",function(e){ e.stopPropagation(); menu(mp.hidden); });
+document.addEventListener("click",function(e){ if(!mp.hidden&&!mp.contains(e.target)) menu(false); });
+document.addEventListener("keydown",function(e){ if(e.key==="Escape"&&!mp.hidden){ menu(false); mb.focus(); } });
+mp.querySelectorAll("a[href^='#']").forEach(function(a){ a.addEventListener("click",function(){ openTo(a.getAttribute("href").slice(1)); menu(false); }); });
 var q=document.getElementById("q"), nohit=document.getElementById("nohit");
 q.addEventListener("input",function(){
   var t=q.value.trim().toLowerCase(), any=false, notesHit=false;
@@ -167,6 +210,7 @@ q.addEventListener("input",function(){
     var ok=!t||li.textContent.toLowerCase().indexOf(t)>=0; li.classList.toggle("hit-hide",!ok);
     if(ok&&t){ any=true; if(li.closest("#notes")) notesHit=true; } });
   var gh=document.getElementById("greenhouse"); if(gh) gh.classList.toggle("hit-hide",!!t&&!gh.querySelector(".proj li:not(.hit-hide)"));
+  var mo=document.getElementById("more"); if(mo&&t&&mo.querySelector("li:not(.hit-hide)")) mo.open=true;
   var sd=document.getElementById("seedlings"); if(sd) sd.classList.toggle("hit-hide",!!t&&sd.textContent.toLowerCase().indexOf(t)<0);
   var nt=document.getElementById("notes"); if(nt){ nt.classList.toggle("hit-hide",!!t&&!notesHit); if(notesHit) nt.open=true; }
   if(sd&&t&&!sd.classList.contains("hit-hide")){ sd.open=true; any=true; }
