@@ -137,7 +137,15 @@
   .more[open] summary::after{content:"–"}
   .more summary .zh{font-size:.85em;color:var(--faint)}
   .more summary:hover{color:var(--accent)}
-  @media (max-width:600px){ .row{gap:4px 12px} .more summary{padding-left:40px} }
+  .row .d{display:block}
+  @media (max-width:600px){
+    .row{gap:6px 12px;align-items:center}
+    .row .ico{margin-top:0}
+    .row .txt{display:contents}
+    .row .txt b{grid-column:2;grid-row:1;margin:0}
+    .row .d{grid-column:1/3;grid-row:2;font-size:15px;line-height:1.6}
+    .row .go{grid-column:3;grid-row:1/3}
+    .more summary{padding-left:40px} }
 </style>
 </head>
 <body>
@@ -164,15 +172,15 @@
     <h2>Greenhouse</h2>
     <p class="intro">I’ve spent years teaching and learning languages. These are the tools I wished I’d had — for reading, learning, and laughing together between languages. Made for my friends, open to anyone who wanders in.</p>
     <ul class="proj">
-      <li><a class="row" href="https://shentuyuxia.github.io/Zili/"><img class="ico" src="/img/zili.png" alt="" width="28" height="28"><span class="txt"><b>Zili <span class="zh" lang="zh">字里</span></b>Read Chinese and learn characters, with a dictionary at its heart. A graded text every morning, pinyin and tone colours, stroke order, and a bookshelf of the 24 solar terms.</span><span class="go">›</span></a></li>
-      <li><a class="row" href="https://shentuyuxia.github.io/entrelinhas/"><img class="ico" src="/img/entrelinhas.png" alt="" width="28" height="28"><span class="txt"><b>Entrelinhas <span class="zh" lang="zh">字里行间</span></b>Daily reading and flashcards in German, English, Portuguese and French. New articles every morning, from A1 to C2; tap any word to look it up and keep it for review.</span><span class="go">›</span></a></li>
-      <li><a class="row" href="https://shentuyuxia.github.io/shiori/"><img class="ico" src="/img/shiori.png" alt="" width="28" height="28"><span class="txt"><b>Shiori <span class="zh" lang="ja">栞</span></b>A Japanese reading companion, one short text a day. Furigana your way, natural voices, and word notes in Chinese, English or German.</span><span class="go">›</span></a></li>
+      <li><a class="row" href="https://shentuyuxia.github.io/Zili/"><img class="ico" src="/img/zili.png" alt="" width="28" height="28"><span class="txt"><b>Zili <span class="zh" lang="zh">字里</span></b><span class="d">Read Chinese with pinyin, tone colours and a dictionary.</span></span><span class="go">›</span></a></li>
+      <li><a class="row" href="https://shentuyuxia.github.io/entrelinhas/"><img class="ico" src="/img/entrelinhas.png" alt="" width="28" height="28"><span class="txt"><b>Entrelinhas <span class="zh" lang="zh">字里行间</span></b><span class="d">Daily reading and flashcards in four European languages.</span></span><span class="go">›</span></a></li>
+      <li><a class="row" href="https://shentuyuxia.github.io/shiori/"><img class="ico" src="/img/shiori.png" alt="" width="28" height="28"><span class="txt"><b>Shiori <span class="zh" lang="ja">栞</span></b><span class="d">Read a little Japanese every day, with furigana and voices.</span></span><span class="go">›</span></a></li>
     </ul>
     <details class="more" id="more">
       <summary>For game nights <span class="zh" lang="zh">派对</span></summary>
       <ul class="proj">
-        <li><a class="row" href="https://shentuyuxia.github.io/circus/"><img class="ico" src="/img/circus.png" alt="" width="28" height="28"><span class="txt"><b>The Circus <span class="zh" lang="zh">线上游园会</span></b>An online board game party: 谁是卧底, 阿瓦隆, 海龟汤 and more, played by voice with a room code. In Chinese and English.</span><span class="go">›</span></a></li>
-        <li><a class="row" href="https://shentuyuxia.github.io/Dialogs/"><img class="ico" src="/img/tonight.png" alt="" width="28" height="28"><span class="txt"><b>Topic Capsules <span class="zh" lang="zh">话题扭蛋</span></b>Spin the capsule machine and draw a topic for your next language exchange. 500 topics, five levels, four languages.</span><span class="go">›</span></a></li>
+        <li><a class="row" href="https://shentuyuxia.github.io/circus/"><img class="ico" src="/img/circus.png" alt="" width="28" height="28"><span class="txt"><b>The Circus <span class="zh" lang="zh">线上游园会</span></b><span class="d">Party games online: 谁是卧底, 阿瓦隆, 海龟汤 and more.</span></span><span class="go">›</span></a></li>
+        <li><a class="row" href="https://shentuyuxia.github.io/Dialogs/"><img class="ico" src="/img/tonight.png" alt="" width="28" height="28"><span class="txt"><b>Topic Capsules <span class="zh" lang="zh">话题扭蛋</span></b><span class="d">Draw a random topic for your next language exchange.</span></span><span class="go">›</span></a></li>
       </ul>
     </details>
   </section>
