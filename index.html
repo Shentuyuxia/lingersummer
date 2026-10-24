@@ -146,6 +146,21 @@
     .row .d{grid-column:1/3;grid-row:2;font-size:15px;line-height:1.6}
     .row .go{grid-column:3;grid-row:1/3}
     .more summary{padding-left:40px} }
+  /* notes list: titles only */
+  #notes{padding-top:44px}
+  #notes .essays{margin:4px 0 0}
+  #notes .essays a{display:block;padding:8px 0;color:var(--ink);font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC",sans-serif}
+  #notes .essays a:hover{color:var(--accent)}
+  #notes .more summary{padding-left:0}
+  #greenhouse{padding-top:48px}
+  #greenhouse+.fold{margin-top:48px}
+  /* about in body colour, footer small */
+  .about{color:var(--muted)!important}
+  .about .mail{color:var(--accent);margin-left:8px}
+  #notes .essays a{font-size:clamp(16px,1.6vw,19px)!important;line-height:1.6!important}
+  h2,.fold summary h2{font-size:clamp(19px,1.9vw,23px)!important}
+  .about .mail svg{width:18px;height:18px}
+  footer{font-size:13px!important;color:var(--faint)!important;margin-top:10px!important}
 </style>
 </head>
 <body>
@@ -157,8 +172,8 @@
         <button class="menu-btn" id="menu-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="menu-panel" aria-label="Menu"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
         <div class="menu-panel" id="menu-panel" hidden>
           <label class="search"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg><input type="search" id="q" placeholder="Search" aria-label="Search this site" autocomplete="off"></label>
-          <a href="#greenhouse">Greenhouse <small lang="zh">工具</small></a>
           <a href="#notes">Notes <small lang="zh">随笔</small></a>
+          <a href="#greenhouse">Greenhouse <small lang="zh">工具</small></a>
           <a href="#seedlings">Seedlings <small lang="zh">札记</small></a>
           <a href="mailto:emo_yuan@outlook.com">Write to me <small>✉</small></a>
         </div>
@@ -167,6 +182,18 @@
     <p class="nohit" id="nohit" hidden>Nothing found.</p>
     <p class="sub">Here is a slowly growing garden of essays, notes, and the words that fall between languages.</p>
   </header>
+
+  <section id="notes">
+    <h2>Notes</h2>
+    <ul class="essays">
+      <li><a href="/essays/linden/" lang="zh">在Linden，感受汉诺威的嬉皮之心</a></li>
+    </ul>
+    <!-- after five titles, move older ones in here:
+    <details class="more">
+      <summary>Read more</summary>
+      <ul class="essays"></ul>
+    </details> -->
+  </section>
 
   <section id="greenhouse">
     <h2>Greenhouse</h2>
@@ -185,21 +212,16 @@
     </details>
   </section>
 
-  <details class="fold" id="notes">
-    <summary><h2>Notes</h2></summary>
-    <ul class="essays"><li><a href="/essays/linden/"><b lang="zh">在Linden，感受汉诺威的嬉皮之心</b><span>A year in Linden, Hannover’s hippie heart · in Chinese</span></a></li></ul>
-  </details>
-
   <details class="fold" id="seedlings">
     <summary><h2>Seedlings</h2></summary>
     <p>Half-grown thoughts.</p>
   </details>
 
 
-  <p class="about">Shentu Yuxia (<span class="zh" lang="zh">申屠余夏</span>) is my pen name — “the summer that remains.”</p>
+  <p class="about">Shentu Yuxia (<span class="zh" lang="zh">申屠余夏</span>) is my pen name — “the summer that remains.”<a class="mail" href="mailto:emo_yuan@outlook.com" title="Write to me" aria-label="Write to me"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg></a></p>
 
   <footer>
-    <span>© 2026 Shentu Yuxia <a class="mail" href="mailto:emo_yuan@outlook.com" title="Write to me" aria-label="Write to me"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg></a></span>
+    <span>© 2026 Shentu Yuxia</span>
   </footer>
 </div>
 <script>
@@ -218,7 +240,7 @@ q.addEventListener("input",function(){
     var ok=!t||li.textContent.toLowerCase().indexOf(t)>=0; li.classList.toggle("hit-hide",!ok);
     if(ok&&t){ any=true; if(li.closest("#notes")) notesHit=true; } });
   var gh=document.getElementById("greenhouse"); if(gh) gh.classList.toggle("hit-hide",!!t&&!gh.querySelector(".proj li:not(.hit-hide)"));
-  var mo=document.getElementById("more"); if(mo&&t&&mo.querySelector("li:not(.hit-hide)")) mo.open=true;
+  document.querySelectorAll("details.more").forEach(function(mo){ if(t&&mo.querySelector("li:not(.hit-hide)")) mo.open=true; });
   var sd=document.getElementById("seedlings"); if(sd) sd.classList.toggle("hit-hide",!!t&&sd.textContent.toLowerCase().indexOf(t)<0);
   var nt=document.getElementById("notes"); if(nt){ nt.classList.toggle("hit-hide",!!t&&!notesHit); if(notesHit) nt.open=true; }
   if(sd&&t&&!sd.classList.contains("hit-hide")){ sd.open=true; any=true; }
