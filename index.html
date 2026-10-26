@@ -172,13 +172,14 @@
   .blk{padding:72px 0 0!important;margin:0!important;background:none!important}
   #notes.blk{padding-top:64px!important}
   #greenhouse.blk{padding-bottom:40px!important}
+  #greenhouse .proj{margin-top:14px}
   .blk h2{margin:0}
   .blk h2 .zh{font-size:.72em;font-weight:400;margin-left:8px;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC",sans-serif}
   .blk .tag{margin:6px 0 0!important;color:var(--faint)!important;font-size:clamp(14px,1.4vw,16px)!important}
   .blk .tag [lang="zh"]{font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC",sans-serif}
   .post{padding:18px 0 0}
   #notes .essays a.pt{padding:0!important;font-family:inherit!important;color:var(--ink)!important}
-  .pt time{display:block;color:#7a6f80;font-size:13px;margin-top:4px}
+  .pt time{display:block;font-style:italic;color:#7a6f80;font-size:13px;margin-top:4px}
   .pt b{display:block;font-family:"IBM Plex Mono",ui-monospace,monospace!important;font-weight:600;font-size:clamp(17px,1.8vw,21px);line-height:1.45}
   .pt:hover b{color:var(--accent)}
   .post .lede{font-style:normal;color:var(--muted)!important;margin:12px 0 0!important}
@@ -216,7 +217,6 @@
       <li class="post">
         <a class="pt" href="/essays/linden/"><b>Linden: The Hippie Heart of Hannover</b><time datetime="2025-08-22">22 Aug 2025, CN</time></a>
         <p class="lede">Linden is not Hannover’s most glamorous district. Here, walls are awash with graffiti, kiosks line the streets, and music and conversation spill into the open. Young people, immigrants, artists and descendants of working-class families live side by side, making it the city’s freest and least easily defined neighbourhood.</p>
-        <p class="lede">I settled here in 2024. From the perspective of someone who calls it home, I capture a year in Linden and the city’s beating hippie heart.</p>
         <a class="readmore" href="/essays/linden/">Read more…</a>
       </li>
     </ul>
@@ -230,7 +230,18 @@
 
   <section id="greenhouse" class="blk">
     <h2>Greenhouse</h2>
-    <p class="tools"><a href="https://shentuyuxia.github.io/Zili/">Zili</a> <span class="dot">·</span> <a href="https://shentuyuxia.github.io/entrelinhas/">Entrelinhas</a> <span class="dot">·</span> <a href="https://shentuyuxia.github.io/shiori/">Shiori</a> <span class="dot">·</span> <a href="https://shentuyuxia.github.io/circus/">The Circus</a> <span class="arr">↗</span></p>
+    <ul class="proj">
+      <li><a class="row" href="https://shentuyuxia.github.io/Zili/"><img class="ico" src="/img/zili.png" alt="" width="28" height="28"><span class="txt"><b>Zili <span class="zh" lang="zh">字里</span></b><span class="d">Read Chinese with pinyin, tone colours and a dictionary.</span></span><span class="go">›</span></a></li>
+      <li><a class="row" href="https://shentuyuxia.github.io/entrelinhas/"><img class="ico" src="/img/entrelinhas.png" alt="" width="28" height="28"><span class="txt"><b>Entrelinhas <span class="zh" lang="zh">字里行间</span></b><span class="d">Daily reading and flashcards in four European languages.</span></span><span class="go">›</span></a></li>
+      <li><a class="row" href="https://shentuyuxia.github.io/shiori/"><img class="ico" src="/img/shiori.png" alt="" width="28" height="28"><span class="txt"><b>Shiori <span class="zh" lang="ja">栞</span></b><span class="d">Read a little Japanese every day, with furigana and voices.</span></span><span class="go">›</span></a></li>
+    </ul>
+    <details class="more" id="more">
+      <summary>More tools</summary>
+      <ul class="proj">
+        <li><a class="row" href="https://shentuyuxia.github.io/circus/"><img class="ico" src="/img/circus.png" alt="" width="28" height="28"><span class="txt"><b>The Circus <span class="zh" lang="zh">线上游园会</span></b><span class="d">Party games online: 谁是卧底, 阿瓦隆, 海龟汤 and more.</span></span><span class="go">›</span></a></li>
+        <li><a class="row" href="https://shentuyuxia.github.io/Dialogs/"><img class="ico" src="/img/tonight.png" alt="" width="28" height="28"><span class="txt"><b>Topic Capsules <span class="zh" lang="zh">话题扭蛋</span></b><span class="d">Draw a random topic for your next language exchange.</span></span><span class="go">›</span></a></li>
+      </ul>
+    </details>
   </section>
 
   <footer>
@@ -249,7 +260,7 @@ mp.querySelectorAll("a[href^='#']").forEach(function(a){ a.addEventListener("cli
 var q=document.getElementById("q"), nohit=document.getElementById("nohit");
 q.addEventListener("input",function(){
   var t=q.value.trim().toLowerCase(), any=false, notesHit=false;
-  document.querySelectorAll(".essays li, .tools a").forEach(function(li){
+  document.querySelectorAll(".essays li, .proj li").forEach(function(li){
     var ok=!t||li.textContent.toLowerCase().indexOf(t)>=0; li.classList.toggle("hit-hide",!ok);
     if(ok&&t){ any=true; if(li.closest("#notes")) notesHit=true; } });
   var gh=document.getElementById("greenhouse"); if(gh) gh.classList.toggle("hit-hide",!!t&&!gh.querySelector(".proj li:not(.hit-hide)"));
