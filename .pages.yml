@@ -1,0 +1,78 @@
+# Pages CMS — https://app.pagescms.org
+media:
+  input: img/posts
+  output: /img/posts
+content:
+  - name: essays
+    label: 文章 Essays
+    type: collection
+    path: _posts
+    format: yaml-frontmatter
+    filename: "{year}-{month}-{day}-{fields.slug}.md"
+    view:
+      fields: [title, date, section, published]
+      primary: title
+      sort: [date, title]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        label: 标题（原文）
+        type: string
+        required: true
+      - name: title_en
+        label: 英文标题（首页显示）
+        type: string
+      - name: slug
+        label: 网址名（英文小写，用 - 连接，如 linden）
+        description: 文章网址会是 shentuyuxia.com/essays/网址名/ ，发布后最好不要再改
+        type: string
+        required: true
+        pattern:
+          regex: "^[a-z0-9]+(-[a-z0-9]+)*$"
+          message: 只能用小写英文字母、数字和 -
+      - name: date
+        label: 发表日期
+        type: date
+        required: true
+      - name: language
+        label: 文章语言
+        type: select
+        default: CN
+        options:
+          values:
+            - { value: CN, label: 中文 CN }
+            - { value: EN, label: English EN }
+            - { value: DE, label: Deutsch DE }
+            - { value: PT, label: Português PT }
+            - { value: FR, label: Français FR }
+      - name: section
+        label: 板块
+        type: select
+        default: notes
+        options:
+          values:
+            - { value: notes, label: Notes from Elsewhere }
+            - { value: seedling, label: Seedling }
+      - name: teaser
+        label: 首页简介（显示在首页标题下面，一段即可）
+        type: text
+      - name: lede
+        label: 文章页引言（正文上方的浅色段落，可留空）
+        type: text
+      - name: original_source
+        label: 首发平台（可留空，例如 蓝书屋公众号）
+        type: string
+      - name: original_url
+        label: 首发链接（可留空）
+        type: string
+      - name: published
+        label: 公开发布（不勾选 = 草稿，不会出现在网站上）
+        type: boolean
+        default: true
+      - name: body
+        label: 正文
+        type: rich-text
+        options:
+          format: markdown

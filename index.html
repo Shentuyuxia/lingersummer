@@ -1,3 +1,6 @@
+---
+layout: null
+---
 <!doctype html>
 <html lang="en">
 <head>
@@ -201,6 +204,11 @@
   footer{font-size:14px!important}
   .nw{white-space:nowrap}
   .more summary{font-size:clamp(16.5px,1.6vw,19px)!important}
+  .older{margin-top:28px;border:0!important}
+  .older summary{border:0!important}
+  .essays .post+.post{padding-top:40px}
+  .older summary{padding-left:0!important}
+  .older .post{padding-top:14px}
 </style>
 </head>
 <body>
@@ -225,20 +233,62 @@
 
   <section id="notes" class="blk">
     <h2>Notes from Elsewhere</h2>
+{%- assign list = site.posts | where: "section", "notes" -%}
+{%- if list.size == 0 %}
+    <p class="soon">Coming soon.</p>
+{%- else %}
     <ul class="essays">
+{%- for post in list limit: 5 %}
       <li class="post">
-        <a class="pt" href="/essays/linden/"><b>Linden: The Hippie Heart of Hannover</b><time datetime="2025-08-22">22 Aug 2025, CN</time></a>
-        <p class="lede">Linden is not Hannover’s most glamorous district. Here, walls are awash with graffiti, kiosks line the streets, and music and conversation spill into the open. Young people, immigrants, artists and descendants of working-class families live side by side, making it the city’s freest and least easily defined neighbourhood.</p>
-        <a class="readmore" href="/essays/linden/">Read more…</a>
+        <a class="pt" href="{{ post.url }}"><b>{{ post.title_en | default: post.title }}</b><time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%-d %b %Y" }}{% if post.language %}, {{ post.language }}{% endif %}</time></a>
+{%- if post.teaser %}
+        <p class="lede">{{ post.teaser }}</p>
+{%- endif %}
+        <a class="readmore" href="{{ post.url }}">Read more…</a>
       </li>
+{%- endfor %}
     </ul>
-    <!-- after five essays, move older ones in here:
-    <details class="more"><summary>Read more</summary><ul class="essays"></ul></details> -->
+{%- if list.size > 5 %}
+    <details class="more older">
+      <summary>Older notes</summary>
+      <ul class="essays">
+{%- for post in list offset: 5 %}
+        <li class="post"><a class="pt" href="{{ post.url }}"><b>{{ post.title_en | default: post.title }}</b><time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%-d %b %Y" }}{% if post.language %}, {{ post.language }}{% endif %}</time></a></li>
+{%- endfor %}
+      </ul>
+    </details>
+{%- endif %}
+{%- endif %}
   </section>
 
   <section id="seedlings" class="blk">
     <h2>Seedling</h2>
+{%- assign list = site.posts | where: "section", "seedling" -%}
+{%- if list.size == 0 %}
     <p class="soon">Coming soon.</p>
+{%- else %}
+    <ul class="essays">
+{%- for post in list limit: 5 %}
+      <li class="post">
+        <a class="pt" href="{{ post.url }}"><b>{{ post.title_en | default: post.title }}</b><time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%-d %b %Y" }}{% if post.language %}, {{ post.language }}{% endif %}</time></a>
+{%- if post.teaser %}
+        <p class="lede">{{ post.teaser }}</p>
+{%- endif %}
+        <a class="readmore" href="{{ post.url }}">Read more…</a>
+      </li>
+{%- endfor %}
+    </ul>
+{%- if list.size > 5 %}
+    <details class="more older">
+      <summary>Older notes</summary>
+      <ul class="essays">
+{%- for post in list offset: 5 %}
+        <li class="post"><a class="pt" href="{{ post.url }}"><b>{{ post.title_en | default: post.title }}</b><time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%-d %b %Y" }}{% if post.language %}, {{ post.language }}{% endif %}</time></a></li>
+{%- endfor %}
+      </ul>
+    </details>
+{%- endif %}
+{%- endif %}
   </section>
 
   <section id="greenhouse" class="blk">
