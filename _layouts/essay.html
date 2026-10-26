@@ -99,6 +99,16 @@
   .prose img{max-width:100%;height:auto;border-radius:8px;display:block;margin:1.4em auto}
   .prose hr{border:0;border-top:1px solid var(--line);margin:2em 0}
   .cover{width:100%;height:auto;border-radius:10px;margin:22px 0 0;display:block}
+  /* larger reading size (2) */
+  .prose{font-size:clamp(18.5px,1.75vw,21px)!important}
+  .lede{font-size:clamp(17.5px,1.6vw,19.5px)!important}
+  .essay h1{font-size:clamp(28px,5vw,40px)!important}
+  .entitle{font-size:clamp(17px,1.7vw,20px)!important}
+  .essay .meta{font-size:15px!important}
+  .prose h2{font-size:clamp(19.5px,1.9vw,22px)!important}
+  .prose blockquote{font-size:15.5px!important}
+  .prose ol{font-size:15px!important}
+  .credit{font-size:15px!important}
 </style>
 </head>
 <body>
@@ -112,13 +122,13 @@
   <header style="padding-bottom:0">
     <h1>{{ page.title }}</h1>
     {% if page.title_en and page.title_en != page.title %}<p class="entitle" lang="en">{{ page.title_en }}</p>{% endif %}
-    <p class="meta"><span lang="en"><time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: "%-d %b %Y" }}</time> · Essay{% if lang_name != "" %} · in {{ lang_name }}{% endif %}</span> · {% if page.language == "CN" %}文｜申屠余夏{% else %}<span lang="en">by Shentu Yuxia</span>{% endif %}</p>
+    <p class="meta"><time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: "%-d %b %Y" }}</time> · Essay</p>
     {% if page.lede %}<p class="lede">{{ page.lede }}</p>{% endif %}
   </header>
   <div class="prose">
 {{ content }}
   </div>
-  {% if page.original_url %}<p class="credit">{% if page.language == "CN" %}本文最初发表于<a href="{{ page.original_url }}">{{ page.original_source | default: "原刊" }}</a>。{% else %}First published in <a href="{{ page.original_url }}">{{ page.original_source | default: page.original_url }}</a>.{% endif %}</p>{% endif %}
+  {% if page.original_url %}<p class="credit" lang="en">First published in <a href="{{ page.original_url }}">{{ page.original_source | default: page.original_url }}</a>.</p>{% endif %}
   </article>
   <p class="about"><a class="back" href="/#{{ back_id }}">← Back to {{ back_label }}</a></p>
   <footer>
