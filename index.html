@@ -168,26 +168,26 @@
   .hmail svg{width:18px;height:18px}
   .hero .sub{color:var(--muted)!important}
   .hero .sub:not(.sub2){margin-top:36px!important}
-  /* each section sits on its own soft panel — no lines */
-  #notes,#seedlings,#greenhouse{background:rgba(255,255,255,.42);border:0!important;border-radius:18px;padding:28px 28px 26px!important;margin:0!important}
-  #notes{margin-top:48px!important}
-  #notes+#seedlings,#seedlings+#greenhouse{margin-top:20px!important}
-  #greenhouse{margin-bottom:36px!important}
-  .fold,.fold+.fold,.fold:last-of-type,.more{border:0!important}
-  .fold summary{padding:0!important}
-  .fold[open] summary{margin-bottom:10px}
-  #notes h2 .zh{font-size:.62em;font-weight:400;color:var(--faint);margin-left:10px}
-  /* essay entry */
-  .post{padding:6px 0 0}
-  #notes .essays a.pt{padding:8px 0 2px!important;font-family:inherit!important}
-  .pt b{display:block;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC",sans-serif;font-weight:600;font-size:clamp(17px,1.8vw,21px);color:var(--ink);line-height:1.45}
-  .pt .en{display:block;margin-top:2px;color:var(--muted);font-size:clamp(14px,1.5vw,16px)}
+  /* sections: numbered headings, spacing only */
+  .blk{padding:72px 0 0!important;margin:0!important;background:none!important}
+  #notes.blk{padding-top:64px!important}
+  #greenhouse.blk{padding-bottom:40px!important}
+  .blk h2{margin:0}
+  .blk h2 .no{opacity:.55;font-weight:400;margin-right:4px}
+  .blk .tag{margin:6px 0 0!important;color:var(--faint)!important;font-size:clamp(14px,1.4vw,16px)!important}
+  .blk .tag [lang="zh"]{font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC",sans-serif}
+  .post{padding:22px 0 0}
+  #notes .essays a.pt{padding:0!important;font-family:inherit!important;color:var(--ink)!important}
+  .pt time{display:block;color:var(--faint);font-size:13px;margin-bottom:4px}
+  .pt b{display:block;font-family:"IBM Plex Mono",ui-monospace,monospace!important;font-weight:600;font-size:clamp(17px,1.8vw,21px);line-height:1.45}
   .pt:hover b{color:var(--accent)}
-  .post time{display:block;margin:6px 0 10px;color:var(--faint);font-size:13px}
-  .post .lede{font-style:italic;color:var(--muted)!important;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC",sans-serif;font-size:clamp(15px,1.5vw,17px)!important;line-height:1.85!important;margin:0 0 10px!important}
-  #notes .essays a.readmore{display:inline-block;font-family:"IBM Plex Mono",ui-monospace,monospace!important;padding:2px 0!important;color:var(--accent);font-size:14px!important;text-decoration:none}
+  .post .lede{font-style:italic;color:var(--muted)!important;margin:12px 0 0!important}
+  #notes .essays a.readmore{display:inline-block;margin-top:12px;padding:0!important;color:var(--accent)!important;font-family:"IBM Plex Mono",ui-monospace,monospace!important;font-size:15px!important;text-decoration:none}
   #notes .essays a.readmore:hover{text-decoration:underline;text-underline-offset:3px}
-  @media (max-width:600px){ #notes,#seedlings,#greenhouse{padding:22px 18px 20px!important;margin-left:-6px!important;margin-right:-6px!important} }
+  .tools{margin:16px 0 0!important}
+  .tools a{color:var(--ink);text-decoration:none;white-space:nowrap}
+  .tools a:hover{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+  .tools .dot,.tools .arr{color:var(--faint)}
 </style>
 </head>
 <body>
@@ -199,54 +199,41 @@
         <button class="menu-btn" id="menu-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="menu-panel" aria-label="Menu"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
         <div class="menu-panel" id="menu-panel" hidden>
           <label class="search"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg><input type="search" id="q" placeholder="Search" aria-label="Search this site" autocomplete="off"></label>
-          <a href="#notes">Notes from Elsewhere<small>无脚鸟日记 · Field notes from a wandering life</small></a>
-          <a href="#seedlings">Seedling<small>Essays taking root</small></a>
-          <a href="#greenhouse">Greenhouse<small>Tools for curious minds</small></a>
+          <a href="#notes">Field Notes<small>无脚鸟札记 · Small observations from a wandering life</small></a>
+          <a href="#seedlings">Seedling<small>随笔 · Essays taking root</small></a>
+          <a href="#greenhouse">Greenhouse<small>温室 · Tools for curious minds</small></a>
         </div>
       </div>
     </div>
     <p class="nohit" id="nohit" hidden>Nothing found.</p>
-    <p class="sub">Hi, I’m Shentu Yuxia (<span class="zh" lang="zh">申屠余夏</span>), a writer and wanderer based in Germany. Yuxia means “the summer that remains.”</p>
+    <p class="sub">Hi, I’m Shentu Yuxia (<span class="zh" lang="zh">申屠余夏</span>), a writer and wanderer from China, based in Germany. Yuxia means “the summer that remains.”</p>
     <p class="sub sub2">Here I gather essays, notes, and fragments of life across cultures, languages, and places.<a class="mail hmail" href="mailto:emo_yuan@outlook.com" title="Write to me" aria-label="Write to me"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg></a></p>
   </header>
 
-  <section id="notes">
-    <h2>Notes from Elsewhere <span class="zh" lang="zh">无脚鸟日记</span></h2>
+  <section id="notes" class="blk">
+    <h2><span class="no">01 /</span> Field Notes</h2>
+    <p class="tag"><span lang="zh">无脚鸟札记</span> · Small observations from a wandering life</p>
     <ul class="essays">
       <li class="post">
-        <a class="pt" href="/essays/linden/"><b lang="zh">在Linden，感受汉诺威的嬉皮之心</b><span class="en">In Linden, Feeling Hannover’s Hippie Heart</span></a>
-        <time datetime="2025-08-22">Aug. 22, 2025</time>
-        <p class="lede" lang="zh">在汉诺威，Linden不是最华丽的街区：它涂鸦斑斓，Kiosk林立，街头总有不请自来的音乐与闲谈。年轻人、移民、艺术家和工人后代在此共居，构成一座城市最自由、最不被定义的片区。作者去年在此落脚，以一个生活者的视角，描摹她在Linden 的一年，以及这座城市跳动的嬉皮之心。</p>
-        <a class="readmore" href="/essays/linden/">Read the full essay →</a>
+        <a class="pt" href="/essays/linden/"><time datetime="2025-08-22">22 Aug 2025</time><b>Linden: The Hippie Heart of Hannover</b></a>
+        <p class="lede">Linden is not Hannover’s most glamorous district. Here, walls are awash with graffiti, kiosks line the streets, and music and conversation spill into the open. Young people, immigrants, artists and descendants of working-class families live side by side, making it the city’s freest and least easily defined neighbourhood.</p>
+        <p class="lede">I settled here in 2024. From the perspective of someone who calls it home, I capture a year in Linden and the city’s beating hippie heart.</p>
+        <a class="readmore" href="/essays/linden/">Read more…</a>
       </li>
     </ul>
-    <!-- after five titles, move older ones in here:
-    <details class="more">
-      <summary>Read more</summary>
-      <ul class="essays"></ul>
-    </details> -->
+    <!-- after five essays, move older ones in here:
+    <details class="more"><summary>Read more</summary><ul class="essays"></ul></details> -->
   </section>
 
-  <details class="fold" id="seedlings">
-    <summary><h2>Seedling</h2></summary>
-    <p>Half-grown thoughts.</p>
-  </details>
+  <section id="seedlings" class="blk">
+    <h2><span class="no">02 /</span> Seedling</h2>
+    <p class="tag"><span lang="zh">随笔</span> · Essays taking root</p>
+  </section>
 
-  <section id="greenhouse">
-    <h2>Greenhouse</h2>
-    <p class="intro">I’ve spent years teaching and learning languages. These are the tools I wished I’d had — for reading, learning, and laughing together between languages. Made for my friends, open to anyone who wanders in.</p>
-    <ul class="proj">
-      <li><a class="row" href="https://shentuyuxia.github.io/Zili/"><img class="ico" src="/img/zili.png" alt="" width="28" height="28"><span class="txt"><b>Zili <span class="zh" lang="zh">字里</span></b><span class="d">Read Chinese with pinyin, tone colours and a dictionary.</span></span><span class="go">›</span></a></li>
-      <li><a class="row" href="https://shentuyuxia.github.io/entrelinhas/"><img class="ico" src="/img/entrelinhas.png" alt="" width="28" height="28"><span class="txt"><b>Entrelinhas <span class="zh" lang="zh">字里行间</span></b><span class="d">Daily reading and flashcards in four European languages.</span></span><span class="go">›</span></a></li>
-      <li><a class="row" href="https://shentuyuxia.github.io/shiori/"><img class="ico" src="/img/shiori.png" alt="" width="28" height="28"><span class="txt"><b>Shiori <span class="zh" lang="ja">栞</span></b><span class="d">Read a little Japanese every day, with furigana and voices.</span></span><span class="go">›</span></a></li>
-    </ul>
-    <details class="more" id="more">
-      <summary>More tools</summary>
-      <ul class="proj">
-        <li><a class="row" href="https://shentuyuxia.github.io/circus/"><img class="ico" src="/img/circus.png" alt="" width="28" height="28"><span class="txt"><b>The Circus <span class="zh" lang="zh">线上游园会</span></b><span class="d">Party games online: 谁是卧底, 阿瓦隆, 海龟汤 and more.</span></span><span class="go">›</span></a></li>
-        <li><a class="row" href="https://shentuyuxia.github.io/Dialogs/"><img class="ico" src="/img/tonight.png" alt="" width="28" height="28"><span class="txt"><b>Topic Capsules <span class="zh" lang="zh">话题扭蛋</span></b><span class="d">Draw a random topic for your next language exchange.</span></span><span class="go">›</span></a></li>
-      </ul>
-    </details>
+  <section id="greenhouse" class="blk">
+    <h2><span class="no">03 /</span> Greenhouse</h2>
+    <p class="tag"><span lang="zh">温室</span> · Tools for curious minds</p>
+    <p class="tools"><a href="https://shentuyuxia.github.io/Zili/">Zili</a> <span class="dot">·</span> <a href="https://shentuyuxia.github.io/entrelinhas/">Entrelinhas</a> <span class="dot">·</span> <a href="https://shentuyuxia.github.io/shiori/">Shiori</a> <span class="dot">·</span> <a href="https://shentuyuxia.github.io/circus/">The Circus</a> <span class="arr">↗</span></p>
   </section>
 
   <footer>
@@ -265,7 +252,7 @@ mp.querySelectorAll("a[href^='#']").forEach(function(a){ a.addEventListener("cli
 var q=document.getElementById("q"), nohit=document.getElementById("nohit");
 q.addEventListener("input",function(){
   var t=q.value.trim().toLowerCase(), any=false, notesHit=false;
-  document.querySelectorAll(".proj li, .essays li").forEach(function(li){
+  document.querySelectorAll(".essays li, .tools a").forEach(function(li){
     var ok=!t||li.textContent.toLowerCase().indexOf(t)>=0; li.classList.toggle("hit-hide",!ok);
     if(ok&&t){ any=true; if(li.closest("#notes")) notesHit=true; } });
   var gh=document.getElementById("greenhouse"); if(gh) gh.classList.toggle("hit-hide",!!t&&!gh.querySelector(".proj li:not(.hit-hide)"));
