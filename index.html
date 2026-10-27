@@ -223,6 +223,20 @@ layout: null
   .eyebrow{margin:0 0 10px;color:var(--accent);font-size:clamp(13px,1.2vw,15px);letter-spacing:.08em;text-transform:uppercase}
   /* narrower reading column */
   .wrap{max-width:820px!important}
+  /* Greenhouse: two-column tool grid, centred, no logos */
+  .tools-grid{list-style:none;margin:36px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:48px 40px}
+  .tools-grid li:last-child:nth-child(odd){grid-column:1/-1;justify-self:center;max-width:calc(50% - 20px)}
+  .tool{display:block;text-align:center;text-decoration:none;padding:18px 16px 20px;border-radius:14px;transition:background .25s,transform .25s}
+  .tool:hover,.tool:focus-visible{background:rgba(210,31,110,.06);transform:translateY(-2px)}
+  .tool:focus-visible{outline:1.5px solid var(--rule);outline-offset:2px}
+  .tn{display:inline-block;color:var(--accent);font-weight:400;font-size:clamp(18px,1.8vw,22px);line-height:1.4}
+  .tn .zh{font-weight:300;margin-left:6px}
+  .tn .langs{font-size:.62em;color:var(--faint);letter-spacing:.04em;margin-left:8px;vertical-align:2px}
+  .tn .go{display:inline-block;margin-left:8px;opacity:.55;transition:transform .25s,opacity .25s}
+  .tool:hover .go,.tool:focus-visible .go{transform:translateX(4px);opacity:1}
+  .tool:hover .tn{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:5px;text-decoration-color:var(--rule)}
+  .td{display:block;margin-top:8px;color:var(--muted);font-size:clamp(16px,1.6vw,18.5px);line-height:1.7}
+  @media (max-width:600px){ .tools-grid{grid-template-columns:1fr;gap:16px} .tools-grid li:last-child:nth-child(odd){max-width:none} }
   /* one label style: eyebrow and section names match */
   .eyebrow,.blk h2,.blk h2.fold-h{font-family:"IBM Plex Mono",ui-monospace,monospace!important;font-size:clamp(13px,1.2vw,15px)!important;font-weight:400!important;letter-spacing:.08em!important;text-transform:uppercase!important;color:var(--accent)!important;line-height:1.4!important}
   .blk .post:first-child{padding-top:14px}
@@ -309,18 +323,13 @@ layout: null
   <section id="greenhouse" class="blk">
     <h2>Greenhouse</h2>
     <p class="ghintro">Tools I wished I’d had in years of teaching, learning and laughing between languages. Made for friends, open to anyone.</p>
-    <ul class="proj">
-      <li><a class="row" href="https://shentuyuxia.github.io/Zili/"><img class="ico" src="/img/zili.png" alt="" width="28" height="28"><span class="txt"><b>Zili <span class="zh" lang="zh">字里</span></b><span class="d">Read Chinese with pinyin, tone colours and a dictionary.</span></span><span class="go">›</span></a></li>
-      <li><a class="row" href="https://shentuyuxia.github.io/entrelinhas/"><img class="ico" src="/img/entrelinhas.png" alt="" width="28" height="28"><span class="txt"><b>Entrelinhas <span class="langs">EN/DE/PT/FR</span></b><span class="d">Daily reading and flashcards, one article at a time.</span></span><span class="go">›</span></a></li>
-      <li><a class="row" href="https://shentuyuxia.github.io/shiori/"><img class="ico" src="/img/shiori.png" alt="" width="28" height="28"><span class="txt"><b>Shiori <span class="zh" lang="ja">栞</span></b><span class="d">Read a little Japanese every day, with furigana and voices.</span></span><span class="go">›</span></a></li>
+    <ul class="tools-grid">
+      <li><a class="tool" href="https://shentuyuxia.github.io/Zili/"><span class="tn">Zili <span class="zh" lang="zh">字里</span><span class="go" aria-hidden="true">›</span></span><span class="td">Read Chinese with pinyin, tone colours and a dictionary.</span></a></li>
+      <li><a class="tool" href="https://shentuyuxia.github.io/entrelinhas/"><span class="tn">Entrelinhas <span class="langs">EN/DE/PT/FR</span><span class="go" aria-hidden="true">›</span></span><span class="td">Daily reading and flashcards, one article at a time.</span></a></li>
+      <li><a class="tool" href="https://shentuyuxia.github.io/shiori/"><span class="tn">Shiori <span class="zh" lang="ja">栞</span><span class="go" aria-hidden="true">›</span></span><span class="td">Read a little Japanese every day, with furigana and voices.</span></a></li>
+      <li><a class="tool" href="https://shentuyuxia.github.io/circus/"><span class="tn">The Circus<span class="go" aria-hidden="true">›</span></span><span class="td">Multilingual online board games: learning by playing.</span></a></li>
+      <li><a class="tool" href="https://shentuyuxia.github.io/Dialogs/"><span class="tn">Topic Capsules<span class="go" aria-hidden="true">›</span></span><span class="td">Draw a random topic for your next language exchange.</span></a></li>
     </ul>
-    <details class="more" id="more">
-      <summary>More tools</summary>
-      <ul class="proj">
-        <li><a class="row" href="https://shentuyuxia.github.io/circus/"><img class="ico" src="/img/circus.png" alt="" width="28" height="28"><span class="txt"><b>The Circus</b><span class="d">Multilingual online board games: learning by playing.</span></span><span class="go">›</span></a></li>
-        <li><a class="row" href="https://shentuyuxia.github.io/Dialogs/"><img class="ico" src="/img/tonight.png" alt="" width="28" height="28"><span class="txt"><b>Topic Capsules</b><span class="d">Draw a random topic for your next language exchange.</span></span><span class="go">›</span></a></li>
-      </ul>
-    </details>
   </section>
 
   <footer>
