@@ -241,7 +241,8 @@ layout: null
   .row:focus-visible{outline:1.5px solid rgba(150,128,200,.5);outline-offset:0}
   /* tools: all five, two columns, no logos, no lines */
   .proj.two{display:grid;grid-template-columns:1fr;gap:6px;margin-top:22px!important}
-  .proj.two li+li{border-top:0!important}
+  .proj.two{gap:0!important}
+  .proj.two li+li{border-top:1px solid rgba(68,56,76,.1)!important}
   .proj.two .row{grid-template-columns:1fr 14px!important;align-items:start!important;align-content:start;height:100%}
   .proj.two .row .go{align-self:center}
   .proj.two .row b,.proj.two .row b .zh{color:var(--ink)!important;font-weight:600!important}
