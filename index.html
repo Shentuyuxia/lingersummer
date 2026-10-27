@@ -261,13 +261,17 @@ layout: null
   footer .motto .sep{color:var(--faint)}
   .top .menu{margin-left:auto!important}
   @media (max-width:520px){ footer .motto{display:none} }
+  /* greeting as the headline */
+  .hero h1.greet{font-size:clamp(23px,2.6vw,31px)!important;font-weight:400!important;letter-spacing:-.01em;line-height:1.45!important;max-width:30em}
+  .hero h1.greet .zh{font-weight:300}
+  .hero .sub:not(.sub2){margin-top:22px!important}
   @media (max-width:520px){ .top{padding:20px 0 16px!important} .nav{gap:8px} .hero{padding:40px 0 8px!important} }
 </style>
 </head>
 <body>
 <div class="wrap">
   <div class="top">
-    <a class="brand" href="/">Shentu Yuxia</a>
+    <a class="brand" href="/">Lingering Summer</a>
     <div class="menu">
       <button class="menu-btn" id="menu-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="menu-panel" aria-label="Menu"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
       <div class="menu-panel" id="menu-panel" hidden>
@@ -280,9 +284,9 @@ layout: null
   </div>
   <header class="hero">
     <p class="eyebrow">A life between worlds</p>
-    <h1>Lingering Summer</h1>
+    <h1 class="greet">Hi, I’m Shentu Yuxia <span class="nw">(<span class="zh" lang="zh">申屠余夏</span>),</span> a writer and wanderer from China, based in Germany.</h1>
     <p class="nohit" id="nohit" hidden>Nothing found.</p>
-    <p class="sub">Hi, I’m Shentu Yuxia (<span class="zh" lang="zh">申屠余夏</span>), a writer and wanderer from China, based in Germany. Yuxia means “the summer that remains.”</p>
+    <p class="sub">Yuxia means “the summer that remains.”</p>
     <p class="sub sub2">Here I gather essays, notes, and fragments of life across cultures, languages, and <span class="nw">places.<a class="mail hmail" href="mailto:emo_yuan@outlook.com" title="Write to me" aria-label="Write to me"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg></a></span></p>
   </header>
 
