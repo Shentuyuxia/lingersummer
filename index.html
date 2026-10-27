@@ -228,6 +228,20 @@ layout: null
   .blk .post:first-child{padding-top:14px}
   .pt b{font-size:clamp(19px,1.9vw,24px)!important}
   .ghintro,.blk .soon{margin-top:14px!important}
+  /* labels a bit larger and stronger */
+  .eyebrow,.blk h2{font-size:clamp(14.5px,1.35vw,16.5px)!important;font-weight:500!important;letter-spacing:.09em!important}
+  /* more air between sections */
+  .blk{padding-top:104px!important}
+  #notes.blk{padding-top:88px!important}
+  /* tools: soft lavender response on hover / tap */
+  .row{margin:0 -14px;padding-left:14px!important;padding-right:14px!important;border-radius:12px;transition:background .25s}
+  .row:hover,.row:focus-visible{background:rgba(150,128,200,.14)}
+  .row:active{background:rgba(150,128,200,.24)}
+  .row:focus-visible{outline:1.5px solid rgba(150,128,200,.5);outline-offset:0}
+  .proj li+li{border-top-color:transparent!important}
+  .proj li+li .row{position:relative}
+  .proj li+li .row::before{content:"";position:absolute;left:14px;right:14px;top:0;border-top:1px solid rgba(68,56,76,.07)}
+  .proj li:hover+li .row::before,.proj li+li .row:hover::before{border-top-color:transparent}
   @media (max-width:520px){ .top{padding:20px 0 16px!important} .nav{gap:8px} .hero{padding:40px 0 8px!important} }
 </style>
 </head>
