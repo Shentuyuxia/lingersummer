@@ -255,6 +255,12 @@ layout: null
   .top .nav{margin-left:auto}
   .menu-panel{z-index:20}
   @media (max-width:600px){ .top .brand{order:1} .top .menu{order:2;margin-left:auto} .top .nav{order:3;width:100%;margin-left:0} }
+  /* motto in the footer, bottom right */
+  footer .motto{display:flex;gap:8px;align-items:center;margin-left:auto}
+  footer .motto .nw2{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
+  footer .motto .sep{color:var(--faint)}
+  .top .menu{margin-left:auto!important}
+  @media (max-width:520px){ footer .motto{margin-left:0;width:100%} }
   @media (max-width:520px){ .top{padding:20px 0 16px!important} .nav{gap:8px} .hero{padding:40px 0 8px!important} }
 </style>
 </head>
@@ -262,9 +268,6 @@ layout: null
 <div class="wrap">
   <div class="top">
     <a class="brand" href="/">Shentu Yuxia</a>
-    <span class="nav" aria-label="Places, thoughts, writing">
-      <span class="nw2">Places</span><span class="sep" aria-hidden="true">·</span><span class="nw2">Thoughts</span><span class="sep" aria-hidden="true">·</span><span class="nw2">Writing</span>
-    </span>
     <div class="menu">
       <button class="menu-btn" id="menu-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="menu-panel" aria-label="Menu"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
       <div class="menu-panel" id="menu-panel" hidden>
@@ -357,6 +360,7 @@ layout: null
 
   <footer>
     <span>© 2026 Shentu Yuxia</span>
+    <span class="motto"><span class="nw2">Places</span><span class="sep" aria-hidden="true">·</span><span class="nw2">Thoughts</span><span class="sep" aria-hidden="true">·</span><span class="nw2">Writing</span></span>
   </footer>
 </div>
 <script>
