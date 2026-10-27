@@ -219,6 +219,7 @@ layout: null
   .nav a{font-size:clamp(13px,1.2vw,15px);letter-spacing:.06em;text-transform:uppercase;color:var(--ink);text-decoration:none;border-bottom:1.5px solid transparent;padding-bottom:2px;transition:color .2s,border-color .2s}
   .nav a:hover{color:var(--accent);border-bottom-color:var(--rule)}
   .nav .sep{color:var(--faint)}
+  .nav .nw2{font-size:clamp(13px,1.2vw,15px);letter-spacing:.06em;text-transform:uppercase;color:var(--ink)}
   .hero{padding:56px 0 16px!important}
   .eyebrow{margin:0 0 10px;color:var(--accent);font-size:clamp(13px,1.2vw,15px);letter-spacing:.08em;text-transform:uppercase}
   /* narrower reading column */
@@ -254,12 +255,12 @@ layout: null
 </head>
 <body>
 <div class="wrap">
-  <nav class="top" aria-label="Main">
+  <div class="top">
     <a class="brand" href="/">Shentu Yuxia</a>
-    <span class="nav">
-      <a href="#notes">Places</a><span class="sep" aria-hidden="true">·</span><a href="#seedlings">Thoughts</a><span class="sep" aria-hidden="true">·</span><a href="#notes">Writing</a>
+    <span class="nav" aria-label="Places, thoughts, writing">
+      <span class="nw2">Places</span><span class="sep" aria-hidden="true">·</span><span class="nw2">Thoughts</span><span class="sep" aria-hidden="true">·</span><span class="nw2">Writing</span>
     </span>
-  </nav>
+  </div>
   <header class="hero">
     <p class="eyebrow">A life between worlds</p>
     <h1>Lingering Summer</h1>
