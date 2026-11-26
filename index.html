@@ -366,6 +366,10 @@ layout: null
   .pt time{display:inline!important;margin:0!important}
   .essays .post{margin-top:26px!important}
   .essays .post:hover .pt b{color:var(--accent)}
+
+  /* ===== v2e: no rule after section labels ===== */
+  .blk h2::after,.eyebrow::after{display:none!important;content:none!important}
+  .eyebrow,.blk h2,.blk h2.fold-h{display:block!important}
 </style>
 </head>
 <body>
