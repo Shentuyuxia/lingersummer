@@ -281,6 +281,60 @@ layout: null
   #greenhouse .row b{font-size:clamp(15.5px,1.45vw,18px)!important;margin-bottom:2px!important}
   #greenhouse .row b .langs{font-size:.8em}
   #greenhouse .row .d{font-size:clamp(14.5px,1.35vw,16.5px)!important;line-height:1.6!important}
+
+  /* ===== v2: quieter type scale + richer surface ===== */
+  :root{--lav:150,128,200}
+  body{font-size:13.5px}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+    background:radial-gradient(520px 380px at 88% 4%,rgba(var(--lav),.20),transparent 70%),
+               radial-gradient(460px 420px at 4% 62%,rgba(210,31,110,.07),transparent 72%)}
+  .wrap{position:relative;z-index:1}
+  .brand{font-size:clamp(16px,1.5vw,19px)!important;letter-spacing:.08em!important}
+  .brand::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:10px;vertical-align:1px;
+    background:radial-gradient(circle at 35% 35%,#f6a8c8,var(--accent));box-shadow:0 0 0 4px rgba(210,31,110,.10)}
+  .hero{position:relative}
+  .hero::after{content:"余夏";position:absolute;right:-6px;top:18px;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC",sans-serif;
+    font-weight:200;font-size:clamp(84px,17vw,168px);line-height:1;letter-spacing:.04em;color:rgba(var(--lav),.14);pointer-events:none;user-select:none;writing-mode:vertical-rl;white-space:nowrap;width:1em;height:2.2em}
+  @media (min-width:900px){ .hero::after{right:-96px;top:10px} }
+  .hero .sub,.hero h1.greet{position:relative;z-index:1;max-width:36em}
+  .hero .sub,.hero h1.greet,.post .lede,.ghintro,.soon{font-size:clamp(14.5px,1.25vw,16.5px)!important;line-height:1.8!important}
+  .eyebrow,.blk h2,.blk h2.fold-h{font-size:clamp(12px,1vw,13.5px)!important;letter-spacing:.14em!important;display:flex;align-items:center;gap:12px}
+  .blk h2::after,.eyebrow::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--rule),transparent)}
+  .blk{padding-top:84px!important} #notes.blk{padding-top:68px!important}
+  /* essays as soft cards */
+  .essays .post{position:relative;background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.8);border-radius:16px;
+    padding:20px 22px 18px!important;margin-top:16px;box-shadow:0 1px 0 rgba(74,63,83,.04),0 10px 28px -18px rgba(74,63,83,.28);
+    transition:transform .25s,box-shadow .25s,background .25s}
+  .essays .post::before{content:"";position:absolute;left:0;top:22px;bottom:22px;width:3px;border-radius:0 3px 3px 0;background:linear-gradient(var(--accent),rgba(var(--lav),.9))}
+  .essays .post:hover{transform:translateY(-2px);background:rgba(255,255,255,.78);box-shadow:0 1px 0 rgba(74,63,83,.04),0 16px 34px -18px rgba(74,63,83,.34)}
+  .essays .post+.post{padding-top:20px!important}
+  .pt b{font-size:clamp(16px,1.45vw,19px)!important;line-height:1.4!important}
+  .pt time{display:inline-block!important;margin-top:8px!important;padding:1px 10px;border-radius:999px;background:rgba(var(--lav),.14);
+    color:#6a5a86!important;font-style:normal!important;font-size:clamp(11.5px,.95vw,12.5px)!important;letter-spacing:.04em}
+  .post .lede{margin-top:12px!important;font-size:clamp(13.5px,1.15vw,15px)!important;line-height:1.75!important}
+  #notes .essays a.readmore{font-size:clamp(13px,1.05vw,14.5px)!important;margin-top:10px!important;letter-spacing:.02em}
+  #notes .essays a.readmore::after{content:" →";transition:margin .2s}
+  #notes .essays a.readmore:hover::after{margin-left:4px}
+  .more summary{font-size:clamp(13.5px,1.1vw,15px)!important}
+  .blk .soon{font-size:clamp(13px,1.05vw,14.5px)!important}
+  /* tools */
+  #greenhouse .proj.two{margin-top:18px!important;counter-reset:t}
+  #greenhouse .proj li{border-top:0!important;border-bottom:0!important}
+  #greenhouse .proj li:last-child{border-bottom:0!important}
+  #greenhouse .row{position:relative;padding:15px 16px 15px 52px!important;margin:0 0 8px!important;border-radius:14px;
+    background:rgba(255,255,255,.42);border:1px solid rgba(74,63,83,.07)}
+  #greenhouse .row::before{counter-increment:t;content:"0" counter(t);position:absolute;left:16px;top:16px;font-size:11.5px;letter-spacing:.08em;color:var(--accent);opacity:.8}
+  #greenhouse .row:hover{background:rgba(var(--lav),.16);border-color:rgba(var(--lav),.35)}
+  #greenhouse .row b{font-size:clamp(14.5px,1.25vw,16.5px)!important}
+  #greenhouse .row .d{font-size:clamp(13px,1.1vw,14.5px)!important}
+  #greenhouse .row .go{transition:transform .2s} #greenhouse .row:hover .go{transform:translateX(3px)}
+  footer{font-size:12px!important}
+  @media (max-width:640px){
+    .hero::after{opacity:.7;right:-14px;font-size:96px}
+    .essays .post{padding:16px 16px 14px!important;border-radius:14px}
+    #greenhouse .row{padding:13px 12px 13px 44px!important} #greenhouse .row::before{left:12px;top:14px}
+    .hero .sub,.hero h1.greet{max-width:calc(100% - 36px)}
+  }
 </style>
 </head>
 <body>
