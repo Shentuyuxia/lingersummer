@@ -357,6 +357,15 @@ layout: null
   .essays .post::before{display:none!important}
   .essays .post{padding:0!important;margin-top:34px}
   @media (max-width:640px){ .essays .post{padding:0!important} }
+
+  /* ===== v2d: less wordy notes ===== */
+  #notes .essays a.readmore,#seedlings .essays a.readmore{display:none!important}
+  .post .lede{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-top:8px!important}
+  .pt{display:flex!important;flex-wrap:wrap;align-items:baseline;column-gap:14px}
+  .pt b{flex:0 1 auto}
+  .pt time{display:inline!important;margin:0!important}
+  .essays .post{margin-top:26px!important}
+  .essays .post:hover .pt b{color:var(--accent)}
 </style>
 </head>
 <body>
