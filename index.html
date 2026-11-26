@@ -352,6 +352,11 @@ layout: null
   #greenhouse .row::before{left:6px;top:17px}
   #greenhouse .row:hover{background:rgba(var(--lav),.14)!important}
   @media (max-width:640px){ .essays .post{padding:2px 0 4px 16px!important} #greenhouse .row{padding:14px 6px 14px 34px!important} #greenhouse .row::before{left:4px;top:15px} }
+
+  /* ===== v2c: no side bars ===== */
+  .essays .post::before{display:none!important}
+  .essays .post{padding:0!important;margin-top:34px}
+  @media (max-width:640px){ .essays .post{padding:0!important} }
 </style>
 </head>
 <body>
