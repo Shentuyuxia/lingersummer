@@ -370,6 +370,12 @@ layout: null
   /* ===== v2e: no rule after section labels ===== */
   .blk h2::after,.eyebrow::after{display:none!important;content:none!important}
   .eyebrow,.blk h2,.blk h2.fold-h{display:block!important}
+
+  /* ===== v2f: bilingual titles ===== */
+  .pt b .tz{display:block;margin-top:3px;font-weight:400!important;font-size:.84em;color:#7a6f80;letter-spacing:.02em}
+  .essays .post:hover .pt b .tz{color:var(--accent)}
+  .pt{display:block!important}
+  .pt time{display:block!important;margin-top:6px!important}
 </style>
 </head>
 <body>
@@ -403,7 +409,7 @@ layout: null
     <ul class="essays">
 {%- for post in list limit: 5 %}
       <li class="post">
-        <a class="pt" href="{{ post.url }}"><b>{{ post.title_en | default: post.title }}</b><time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%-d %b %Y" }}{% if post.language %}, {{ post.language }}{% endif %}</time></a>
+        <a class="pt" href="{{ post.url }}"><b>{{ post.title_en | default: post.title }}{% if post.title_en and post.title != post.title_en %}<span class="tz zh">{{ post.title }}</span>{% endif %}</b><time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%-d %b %Y" }}{% if post.language %}, {{ post.language }}{% endif %}</time></a>
 {%- if post.teaser %}
         <p class="lede">{{ post.teaser }}</p>
 {%- endif %}
@@ -416,7 +422,7 @@ layout: null
       <summary>Older notes</summary>
       <ul class="essays">
 {%- for post in list offset: 5 %}
-        <li class="post"><a class="pt" href="{{ post.url }}"><b>{{ post.title_en | default: post.title }}</b><time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%-d %b %Y" }}{% if post.language %}, {{ post.language }}{% endif %}</time></a></li>
+        <li class="post"><a class="pt" href="{{ post.url }}"><b>{{ post.title_en | default: post.title }}{% if post.title_en and post.title != post.title_en %}<span class="tz zh">{{ post.title }}</span>{% endif %}</b><time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%-d %b %Y" }}{% if post.language %}, {{ post.language }}{% endif %}</time></a></li>
 {%- endfor %}
       </ul>
     </details>
@@ -433,7 +439,7 @@ layout: null
     <ul class="essays">
 {%- for post in list limit: 5 %}
       <li class="post">
-        <a class="pt" href="{{ post.url }}"><b>{{ post.title_en | default: post.title }}</b><time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%-d %b %Y" }}{% if post.language %}, {{ post.language }}{% endif %}</time></a>
+        <a class="pt" href="{{ post.url }}"><b>{{ post.title_en | default: post.title }}{% if post.title_en and post.title != post.title_en %}<span class="tz zh">{{ post.title }}</span>{% endif %}</b><time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%-d %b %Y" }}{% if post.language %}, {{ post.language }}{% endif %}</time></a>
 {%- if post.teaser %}
         <p class="lede">{{ post.teaser }}</p>
 {%- endif %}
@@ -446,7 +452,7 @@ layout: null
       <summary>Older notes</summary>
       <ul class="essays">
 {%- for post in list offset: 5 %}
-        <li class="post"><a class="pt" href="{{ post.url }}"><b>{{ post.title_en | default: post.title }}</b><time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%-d %b %Y" }}{% if post.language %}, {{ post.language }}{% endif %}</time></a></li>
+        <li class="post"><a class="pt" href="{{ post.url }}"><b>{{ post.title_en | default: post.title }}{% if post.title_en and post.title != post.title_en %}<span class="tz zh">{{ post.title }}</span>{% endif %}</b><time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%-d %b %Y" }}{% if post.language %}, {{ post.language }}{% endif %}</time></a></li>
 {%- endfor %}
       </ul>
     </details>
