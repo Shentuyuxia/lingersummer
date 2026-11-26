@@ -335,6 +335,23 @@ layout: null
     #greenhouse .row{padding:13px 12px 13px 44px!important} #greenhouse .row::before{left:12px;top:14px}
     .hero .sub,.hero h1.greet{max-width:calc(100% - 36px)}
   }
+
+  /* ===== v2b: flat, no bubbles ===== */
+  body::before{display:none}
+  .brand::before{display:none}
+  .essays .post{background:none!important;border:0!important;border-radius:0!important;box-shadow:none!important;transform:none!important;
+    padding:4px 0 6px 22px!important;margin-top:30px}
+  .essays .post::before{left:0;top:6px;bottom:6px;width:2px;border-radius:0}
+  .essays .post:hover{background:none!important;box-shadow:none!important;transform:none!important}
+  .essays .post:hover .pt b{color:var(--accent)}
+  .pt time{display:block!important;padding:0!important;border-radius:0!important;background:none!important;margin-top:6px!important;
+    color:#7a6f80!important;font-style:italic!important;font-size:clamp(12px,1vw,13px)!important}
+  #greenhouse .row{background:none!important;border:0!important;border-radius:0!important;margin:0!important;
+    border-top:1px solid rgba(74,63,83,.12)!important;padding:16px 8px 16px 40px!important}
+  #greenhouse .proj li:last-child .row{border-bottom:1px solid rgba(74,63,83,.12)!important}
+  #greenhouse .row::before{left:6px;top:17px}
+  #greenhouse .row:hover{background:rgba(var(--lav),.14)!important}
+  @media (max-width:640px){ .essays .post{padding:2px 0 4px 16px!important} #greenhouse .row{padding:14px 6px 14px 34px!important} #greenhouse .row::before{left:4px;top:15px} }
 </style>
 </head>
 <body>
